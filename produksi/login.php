@@ -67,7 +67,7 @@ if(isset($_SESSION['log'])){
 
             /* Mengubah kartu login menjadi gelap dan lebih transparan */
             .card {
-                top: 70px;
+                top: 160px;
                 background-color: rgba(45, 45, 45, 0.8) !important; 
                 border-radius: 15px !important;
                 border: none !important;

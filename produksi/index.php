@@ -1,7 +1,7 @@
 <?php
     include "koneksi/koneksi.php";
-    require'function.php';
-    require'cek.php'; 
+    require 'function.php';
+    require 'cek.php'; 
 ?>
 
 <!DOCTYPE html>
@@ -27,11 +27,160 @@
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+
+    <!-- CSS TAMBAHAN UNTUK DESAIN BARU -->
+    <style>
+        :root {
+            --main-color: #20c997; /* Warna Aksen Hijau Toska */
+            --sidebar-width: 260px;
+        }
+
+        /* --- Global & Background --- */
+        body {
+            background-color: #f0f2f5;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        #layoutSidenav_content {
+            position: relative;
+        }
+
+        #layoutSidenav_content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://storage.googleapis.com/pkg-portal-bucket/images/news/2023-10/petrokimia-gresik-komitmen-dukung-pengembangan-energi-bersih-tanah-air-lewat-green-hydrogen-green-ammonia/Area-Pabrik-1A-Petrokimia-Gresik.jpeg');
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+            opacity: 0.80;
+        }
+
+        /* --- Top Navigation Bar --- */
+        .sb-topnav {
+            background-color: #ffffff !important;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .sb-topnav .navbar-brand {
+            color: #333 !important;
+            font-weight: bold;
+        }
+
+        .sb-topnav .btn-link {
+            color: #555 !important;
+        }
+        
+        /* --- Sidebar Navigation --- */
+        #layoutSidenav_nav {
+            width: var(--sidebar-width) !important;
+        }
+
+        .sb-sidenav {
+            background-color: #ffffff !important;
+        }
+
+        .sb-sidenav-dark {
+            box-shadow: 2px 0 10px rgba(0,0,0,0.05);
+        }
+
+        .sb-sidenav .sb-sidenav-menu .nav-link {
+            color: #555;
+            padding: 12px 20px;
+            border-radius: 8px;
+            margin: 2px 10px;
+            font-weight: 500;
+        }
+        
+        .sb-sidenav-dark .sb-sidenav-menu .nav-link .sb-nav-link-icon {
+            color: #888;
+        }
+
+        .sb-sidenav .sb-sidenav-menu .nav-link:hover,
+        .sb-sidenav .sb-sidenav-menu .nav-link.active {
+            background-color: var(--main-color);
+            color: #fff;
+        }
+        
+        .sb-sidenav .sb-sidenav-menu .nav-link:hover .sb-nav-link-icon,
+        .sb-sidenav .sb-sidenav-menu .nav-link.active .sb-nav-link-icon {
+             color: #fff;
+        }
+
+        .sb-sidenav-dark .sb-sidenav-menu .nav .sb-sidenav-menu-nested .nav-link {
+            padding-left: 3.5rem;
+            color: #666;
+        }
+        
+        .sb-sidenav-dark .sb-sidenav-footer {
+            background-color: #f8f9fa !important;
+            color: #666;
+        }
+
+        /* --- Main Content Card --- */
+        main {
+            padding: 2rem;
+        }
+        
+        .card {
+            border-radius: 15px !important;
+            border: none !important;
+            box-shadow: 0 4px 25px rgba(0,0,0,0.08) !important;
+        }
+        
+        .card-header {
+            background-color: #fff !important;
+            border-bottom: 1px solid #eee !important;
+            padding: 1.5rem !important;
+            font-weight: bold;
+        }
+        
+        .card-body {
+             padding: 1.5rem !important;
+        }
+
+        h1.mt-4 {
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        h1.mt-4::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 80px;
+            height: 4px;
+            background-color: var(--main-color);
+            border-radius: 2px;
+        }
+        
+        .breadcrumb {
+            background-color: #e9ecef;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+        }
+
+        /* --- Buttons & Modals --- */
+        .btn-primary {
+            background-color: var(--main-color) !important;
+            border-color: var(--main-color) !important;
+        }
+
+        .logoboy {
+            padding: 20px 50px 10px 50px;
+        }
+
+    </style>
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="index.html">PT Gudang Garam TBK</a>
+            <a class="navbar-brand ps-3 hehe" href="index.html">PT Gresik Petrokimia</a>
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
@@ -55,7 +204,7 @@
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
-                            
+                        <img class="logoboy" src="https://storage.googleapis.com/pkg-portal-bucket/images/template/logo-PG-agro-trans-small.png" alt="">  
                         <a class="nav-link" href="index.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
@@ -95,118 +244,115 @@
                                     <a class="nav-link" href="customer.php">Customer</a>
                                 </nav>
                         </div>
-                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                            <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                            Purchasing
-                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                        </a>
-                        <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                            <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="purchase_requisition.php">Purchase Requistion</a>
-                                <a class="nav-link" href="request_for_quotation.php">Request For Quotation</a>
-                                <a class="nav-link" href="data_vendor.php">Data Vendor</a>
-                                <a class="nav-link" href="purchase_inquiry.php">Purchase Inqury</a>
-                                <a class="nav-link" href="purchase_quotation.php">Purchase Quotation</a>
-                                <a class="nav-link" href="purchase_order.php">Purchase Order</a>
-                                <a class="nav-link" href="material.php">Material Entry</a>
-                                <a class="nav-link" href="purchase_return.php">Purchase Return</a>
-                            </nav>
-                        </div>
-                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                        <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                            Human And Resource
-                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                Purchasing
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                            <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="hr_absensi.php">Absensi</a>
-                            <a class="nav-link" href="hr_daftarkaryawan.php">Daftar Karyawan</a>
-                            <a class="nav-link" href="hr_department.php">Departement</a>
-                            <a class="nav-link" href="hr_gajikaryawan.php">Gaji Karyawan</a>
-                        </nav>
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="purchase_requisition.php">Purchase Requistion</a>
+                                    <a class="nav-link" href="request_for_quotation.php">Request For Quotation</a>
+                                    <a class="nav-link" href="data_vendor.php">Data Vendor</a>
+                                    <a class="nav-link" href="purchase_inquiry.php">Purchase Inqury</a>
+                                    <a class="nav-link" href="purchase_quotation.php">Purchase Quotation</a>
+                                    <a class="nav-link" href="purchase_order.php">Purchase Order</a>
+                                    <a class="nav-link" href="material.php">Material Entry</a>
+                                    <a class="nav-link" href="purchase_return.php">Purchase Return</a>
+                                </nav>
                         </div>
-                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                             <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Inventory
+                                Human And Resource
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                                 </a>
                                 <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="inv_bahanbaku.php">Bahan Baku</a>
-                                <a class="nav-link" href="inv_barangjadi.php">Barang Jadi</a>
-                                <a class="nav-link" href="penerimaanbb.php">Penerimaan BB</a>
-                                <a class="nav-link" href="penerimaanbj.php">Penerimaan BJ</a>
-                                <a class="nav-link" href="pengirimanbb.php">Pengiriman BB</a>
-                                <a class="nav-link" href="pengirimanbj.php">Pengiriman BJ</a>
+                                <a class="nav-link" href="hr_absensi.php">Absensi</a>
+                                <a class="nav-link" href="hr_daftarkaryawan.php">Daftar Karyawan</a>
+                                <a class="nav-link" href="hr_department.php">Departement</a>
+                                <a class="nav-link" href="hr_gajikaryawan.php">Gaji Karyawan</a>
                             </nav>
                         </div>
-                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                            <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                            Finance
-                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                        </a>
-                        <a class="nav-link" href="logout.php">
-                               Logout
-                            </a>
-                        <!DOCTYPE html>
-                        <html lang="en">
-                        <head>
-                            <meta charset="UTF-8">
-                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                            <title>Menu Sidebar</title>
-                            <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-                            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-                            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-                            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-                        </head>
-                        <body>
-                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="invoice.php">Sales Order</a>
-                                    <a class="nav-link" href="payment.php">Payment</a>
-                                    <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#collapseFinancialReport" aria-expanded="false" aria-controls="collapseFinancialReport">Financial Report</a>
-                                    <div class="collapse" id="collapseFinancialReport">
-                                        <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="cash_flow.php">Cash Flow</a>
-                                            <a class="nav-link" href="capital_statement.php">Capital Statement</a>
-                                            <a class="nav-link" href="balance_report.php">Balance Report</a>
-                                            <a class="nav-link" href="income_statement.php">Income Statement</a>
-                                            <a class="nav-link" href="general_journal.php">General Journal</a>
-                                        </nav>
-                                    </div>
-                                    <a class="nav-link" href="production.php">Penyusunan Laporan Biaya</a>
-                                    <a class="nav-link" href="laporan_harian.php" data-bs-toggle="collapse" data-bs-target="#LayoutsTransaksi" aria-expanded="false" aria-controls="LayoutsTransaksi">Database Transaksi</a>
-                                    <div class="collapse" id="LayoutsTransaksi">
-                                        <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="input_cash_bank.php">Input Cash dan Bank</a>
-                                            <a class="nav-link" href="input_purchase.php">Input Purchase</a>
-                                            <a class="nav-link" href="input_sales.php">Input Sales</a>
-                                            <a class="nav-link" href="input_cost.php">Input Cost</a>
-                                            <a class="nav-link" href="status_pembayaran.php">Status Pembayaran</a>
-                                        </nav>
-                                    </div>
-                                    <a class="nav-link" href="gaji_karyawan.php">Gaji Karyawan</a>
-                                    <a class="nav-link" href="pembelian.php">Pembelian</a>
-                                    <a class="nav-link" href="pay.php">Purchase Order</a>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                    Inventory
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                    </a>
+                                    <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="inv_bahanbaku.php">Bahan Baku</a>
+                                    <a class="nav-link" href="inv_barangjadi.php">Barang Jadi</a>
+                                    <a class="nav-link" href="penerimaanbb.php">Penerimaan BB</a>
+                                    <a class="nav-link" href="penerimaanbj.php">Penerimaan BJ</a>
+                                    <a class="nav-link" href="pengirimanbb.php">Pengiriman BB</a>
+                                    <a class="nav-link" href="pengirimanbj.php">Pengiriman BJ</a>
                                 </nav>
-                            </div>
-                        </body>
-                        </html>
-                    </div>
+                        </div>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                Finance
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            
+                            <!DOCTYPE html>
+                            <html lang="en">
+                            <head>
+                                <meta charset="UTF-8">
+                                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                                <title>Menu Sidebar</title>
+                                <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+                                <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+                                <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+                                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+                            </head>
+                            <body>
+                                <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                        <a class="nav-link" href="invoice.php">Sales Order</a>
+                                        <a class="nav-link" href="payment.php">Payment</a>
+                                        <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#collapseFinancialReport" aria-expanded="false" aria-controls="collapseFinancialReport">Financial Report</a>
+                                        <div class="collapse" id="collapseFinancialReport">
+                                            <nav class="sb-sidenav-menu-nested nav">
+                                                <a class="nav-link" href="cash_flow.php">Cash Flow</a>
+                                                <a class="nav-link" href="capital_statement.php">Capital Statement</a>
+                                                <a class="nav-link" href="balance_report.php">Balance Report</a>
+                                                <a class="nav-link" href="income_statement.php">Income Statement</a>
+                                                <a class="nav-link" href="general_journal.php">General Journal</a>
+                                            </nav>
+                                        </div>
+                                        <a class="nav-link" href="production.php">Penyusunan Laporan Biaya</a>
+                                        <a class="nav-link" href="laporan_harian.php" data-bs-toggle="collapse" data-bs-target="#LayoutsTransaksi" aria-expanded="false" aria-controls="LayoutsTransaksi">Database Transaksi</a>
+                                        <div class="collapse" id="LayoutsTransaksi">
+                                            <nav class="sb-sidenav-menu-nested nav">
+                                                <a class="nav-link" href="input_cash_bank.php">Input Cash dan Bank</a>
+                                                <a class="nav-link" href="input_purchase.php">Input Purchase</a>
+                                                <a class="nav-link" href="input_sales.php">Input Sales</a>
+                                                <a class="nav-link" href="input_cost.php">Input Cost</a>
+                                                <a class="nav-link" href="status_pembayaran.php">Status Pembayaran</a>
+                                            </nav>
+                                        </div>
+                                        <a class="nav-link" href="gaji_karyawan.php">Gaji Karyawan</a>
+                                        <a class="nav-link" href="pembelian.php">Pembelian</a>
+                                        <a class="nav-link" href="pay.php">Purchase Order</a>
+                                    </nav>
+                                </div>
+                                <a class="nav-link" href="logout.php">
+                                    Logout
+                                </a>
+                            </body>
+                            </html>
+                        </div>
                 
-                    <div class="sb-sidenav-footer">
-                        <div class="small">Logged in as:</div>
-                        Admin
-                    </div>
+                        <div class="sb-sidenav-footer">
+                            <div class="small">Logged in as:</div>
+                            Admin
+                        </div>
                 </nav>
             </div>
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">Dashboard</h1>
-                        <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">Dashboard</li>
-                        </ol>
                         <div class="row">
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-primary text-white mb-4">
