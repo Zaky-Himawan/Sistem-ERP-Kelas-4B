@@ -6,7 +6,6 @@ require'cek.php';
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.cake.me%2Fme%2Fmuhammad-zaky-himawan%3Flocale%3Did&psig=AOvVaw3gonIoJP5FAqz1it62qJ0a&ust=1751542103459000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCPCilfmIno4DFQAAAAAdAAAAABAE" alt="">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
